@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const NavBar = () => {
   const [nav, setNav] = useState(false);
+  const router = useRouter();
+  const { pathname } = router;
   const links = [
     {
       id: 1,
@@ -32,15 +35,25 @@ const NavBar = () => {
         <h1 className="text-5xl font-signature ml-2">Krishna</h1>
       </div>
       <div className="hidden md:flex">
-        {links.map(({ link, id }) => (
-          <Link
-            key={id}
-            className="px-4 cursor-pointer capitalize text-gray-500 hover:scale-105 duration-200 font-medium"
-            href={`/${link}`}
-          >
-            {link}
-          </Link>
-        ))}
+        {links.map(({ link, id }) => {
+          const linkUrl = `/${link}`;
+          const isActive = pathname === linkUrl;
+
+          return (
+            <Link
+              key={id}
+              className={
+                isActive
+                  ? "text-white"
+                  : "" +
+                    "px-4 cursor-pointer capitalize text-gray-500 hover:scale-105 duration-200 font-medium"
+              }
+              href={linkUrl}
+            >
+              {link}
+            </Link>
+          );
+        })}
       </div>
 
       <div
