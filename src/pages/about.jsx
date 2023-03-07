@@ -1,5 +1,3 @@
-import React from "react";
-
 const About = () => {
   return (
     <div
@@ -14,8 +12,8 @@ const About = () => {
         </div>
 
         <p className="text-xl mt-20">
-          Hi there! I'm a front-end developer with experience in React and
-          Redux. I'm passionate about creating user-friendly and visually
+          Hi there! I&lsquo;m a front-end developer with experience in React and
+          Redux. I&lsquo;m passionate about creating user-friendly and visually
           appealing websites and applications.
         </p>
 

@@ -10,23 +10,28 @@ const NavBar = () => {
   const links = [
     {
       id: 1,
-      link: "home",
+      link: "/",
+      title: "home",
     },
     {
       id: 2,
-      link: "about",
+      link: "/about",
+      title: "about",
     },
     {
       id: 3,
-      link: "portfolio",
+      link: "/portfolio",
+      title: "portfolio",
     },
     {
       id: 4,
       link: "experience",
+      title: "experience",
     },
     {
       id: 5,
-      link: "contact",
+      link: "/contact",
+      title: "contact",
     },
   ];
   return (
@@ -35,8 +40,8 @@ const NavBar = () => {
         <h1 className="text-5xl font-signature ml-2">Krishna</h1>
       </div>
       <div className="hidden md:flex">
-        {links.map(({ link, id }) => {
-          const linkUrl = `/${link}`;
+        {links.map(({ link, id, title }) => {
+          const linkUrl = link;
           const isActive = pathname === linkUrl;
 
           return (
@@ -44,13 +49,13 @@ const NavBar = () => {
               key={id}
               className={
                 isActive
-                  ? "text-white"
+                  ? "text-white capitalize"
                   : "" +
                     "px-4 cursor-pointer capitalize text-gray-500 hover:scale-105 duration-200 font-medium"
               }
               href={linkUrl}
             >
-              {link}
+              {title}
             </Link>
           );
         })}
